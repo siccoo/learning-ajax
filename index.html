@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Learning Ajax with Chilaka</title>
+        <script>
+            function ajax_func() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var reciever = document.getElementById('get_data');
+                        reciever.innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open('GET', 'process_ajax.php', true);
+                xmlhttp.send();
+            }
+            
+        </script>
+    </head>
+    <body>
+        <button onclick="ajax_func()">Click here to Retrieve Data</button>
+        <div id="get_data">
+            Reciever's Data
+        </div>
+    </body>
+</html>
